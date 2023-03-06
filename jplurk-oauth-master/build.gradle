@@ -1,0 +1,31 @@
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:0.3.4'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.scribe:scribe:1.2.2'
+    compile 'org.json:json:20080701'
+    compile 'commons-logging:commons-logging:1.1.1'
+    compile 'commons-httpclient:commons-httpclient:3.1'
+    testCompile 'junit:junit:4.12'
+}
+
+
+
+if (System.properties['release'] != null) {
+  apply from: 'release.gradle'
+}
